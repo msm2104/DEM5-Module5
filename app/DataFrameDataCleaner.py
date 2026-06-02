@@ -19,5 +19,3 @@ class DataFrameDataCleaner:
             return self.df, original_rows, null_rows_removed, duplicate_rows_removed
 
 
-if __name__ == "__main__":
-    unittest.main()
