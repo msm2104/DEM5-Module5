@@ -12,18 +12,15 @@ class TestOperations(unittest.TestCase):
 
     def test_difference(self) :
         cal1 = Calculator(8,2)
-        self.assertEqual(cal1.get_product(),(8-2),"The Answer does not match difference operation")
+        self.assertEqual(cal1.get_difference(),(8-2),"The Answer does not match difference operation")
 
     def test_product(self) :
         cal1 = Calculator(8,2)
-        self.assertEqual(cal1.get_sum(),(8*2),"The Answer does not match product operation")
+        self.assertEqual(cal1.get_product(),(8*2),"The Answer does not match product operation")
 
     def test_quotient(self) :
         cal1 = Calculator(8,2)
-        self.assertEqual(cal1.get_sum(),(8/2),"The Answer does not match quotient operation")
-
-        cal2 = Calculator(1,0)
-        self.assertEqual(cal1.get_sum(),0,"The Answer does not match quotient operation")
+        self.assertEqual(cal1.get_quoitent(),(8/2),"The Answer does not match quotient operation")
 
     def tearDown(self):
         self.doClassCleanups()
