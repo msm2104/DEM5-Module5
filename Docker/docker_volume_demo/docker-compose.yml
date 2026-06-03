@@ -1,0 +1,7 @@
+services: 
+  hello-volume:
+    build : .
+    volumes : 
+      - myfirstvolume:/data
+  volumes:
+    myfirstvolume

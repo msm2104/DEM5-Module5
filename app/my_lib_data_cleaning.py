@@ -1,13 +1,13 @@
 import pandas as pd
-from app.helper_fun import *
-from app.DataFrameDataCleaner import DataFrameDataCleaner
+from helper_fun import *
+from DataFrameDataCleaner import DataFrameDataCleaner
 
 LIBARTY_BORROW_RECORD = "data/03_Library Systembook.csv"        # Customer ID, Customer Name
 CUSTOMER_FILENAME = "data/03_Library SystemCustomers.csv"        # Id, Books, Book checkout, Book Returned, Days allowed to borrow, Customer ID
     
-CLEAN_CUSTOMER_LIST = "clean/Library_SystemCustomers_Clean.csv"
-CLEAN_BORROW_RECORD = "clean/Library_Systembook_Clean.csv"
-DIRTY_BORROW_RECORD = "clean/Library_Systembook_Dirty.csv"
+CLEAN_CUSTOMER_LIST_OUT = f"/data/Library_SystemCustomers_Clean.csv"
+CLEAN_BORROW_RECORD_OUT = f"/data/Library_Systembook_Clean.csv"
+DIRTY_BORROW_RECORD_OUT = f"/data/Library_Systembook_Dirty.csv" 
 
 
 def clean_library_record_files():
@@ -28,7 +28,7 @@ def clean_library_record_files():
 
     
     # output into clean csv file.
-    lib_rec_data_clean.df.to_csv(CLEAN_CUSTOMER_LIST, index=False)
+    lib_rec_data_clean.df.to_csv(CLEAN_BORROW_RECORD_OUT, index=False)
 
 
 def clean_customer_library_files():
@@ -48,7 +48,7 @@ def clean_customer_library_files():
     
     customer_file_cleaning_summary["Clean_Rows"] = len(cus_data_clean.df)
     # output into clean csv file.
-    cus_data_clean.df.to_csv(CLEAN_CUSTOMER_LIST, index=False)
+    cus_data_clean.df.to_csv(CLEAN_CUSTOMER_LIST_OUT, index=False)
 
 if __name__ == "__main__":
     clean_customer_library_files()

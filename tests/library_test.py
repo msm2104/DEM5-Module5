@@ -1,6 +1,6 @@
 import pandas as pd 
 import unittest
-from DataFrameDataCleaner import DataFrameDataCleaner
+from app.DataFrameDataCleaner import DataFrameDataCleaner
 from pandas.testing import assert_frame_equal
 
 
