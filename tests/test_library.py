@@ -27,7 +27,7 @@ class TestOperations(unittest.TestCase):
         null_rows_removed = duplicate_rows_removed - len(self.df)
         
         self.df_cleaner.clean_empty_rows(null_subset=["Customer Name","Email"])
-        self.df_cleaner.find_duplicates()
+        self.df_cleaner.clean_duplicate_rows()
         
         
         self.assertEqual(original_rows,self.df_cleaner.stats["original_rows"], "no of original rows in data cleaning doesn't match")
@@ -37,5 +37,5 @@ class TestOperations(unittest.TestCase):
 
 
 if __name__ == "__main__":
-   # unittest.main()
-   pass
+   unittest.main()
+   
