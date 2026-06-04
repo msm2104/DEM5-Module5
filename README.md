@@ -21,8 +21,8 @@ Finally create the PowerBI report to show the pipeline activity.
 ![alt text](image-1.png)
 
 TO DO : 
-    - further cleaning on dates
-        1. checkout - should not be future date
-        2. return date should be greater than checkout date
-    - store output into a persistent store like Database 
-    - Schedule using Apache AirFlow. 
+    1 further cleaning on dates
+        1.1 checkout - should not be future date
+        1.2 return date should be greater than checkout date
+    2 store output into a persistent store like Database 
+    3 Schedule using Apache AirFlow. 
