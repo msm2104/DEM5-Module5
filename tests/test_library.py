@@ -26,7 +26,7 @@ class TestOperations(unittest.TestCase):
         self.df = self.df.dropna(subset=["Customer Name","Email"])
         null_rows_removed = duplicate_rows_removed - len(self.df)
         
-        self.df_cleaner.clean_empty_rows(subset=["Customer Name","Email"])
+        self.df_cleaner.clean_empty_rows(null_subset=["Customer Name","Email"])
         self.df_cleaner.find_duplicates()
         
         
