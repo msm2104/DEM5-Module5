@@ -1,20 +1,28 @@
 # DEM5-Module5
 Scenario 
 
-Customer File - Clean customer file - removing duplicates, Seprating First name and Last Name, removing null values 
-Library borrowing record -  Date formatting, Days allowed borrow , 
+This is a sample Library data cleaning activity project. Project clean files and run it in a docker container.   
 
-As a library admin I want to automaticvally ingest and clean the flat files I manually curate each day to impress my boss.
+The demo has below library record files
 
-How would I do it?
-Stage 1 : ingestion - Needs a trigger/schedule - possible matching issues depenedant on src location - 1 master script or 1 for each type
+1. Library Customer Record
+2. Library Book Borrow Record
 
-Stage 2 : clean - Need to ID issues - Prepare for dirty dates, duplicates and text character errors - Enforce correct types for Dates and Integers - log all fixes and counts
+The cleaning activity includes
+1. Clean Customer Record File - remove duplicates and Null 
+2. Clean Record file - remove duplicates and null, remove invalid dates. 
+3. Enrich Data by adding 2 extra measures
+3. Copy dirty data into seprate files. 
+4. logs the each cleaning stats into a seprate stat file. 
 
-Stage 3 : Store - Store outputs in DB - aggreagte fixes, create output of impacts / success/ fails etc
+Finally create the PowerBI report to show the pipeline activity. 
+![alt text](image.png)
 
-In addition: - Log activity at each stage (runtime, errors found etc) - Add logs to a DB for visualisation
+![alt text](image-1.png)
 
-To consider: - no current DE systems, new services will be expensive - small bespoke management via scripts be cheaper but will add technical debt
-
-Rough Process Map
+TO DO : 
+    - further cleaning on dates
+        1. checkout - should not be future date
+        2. return date should be greater than checkout date
+    - store output into a persistent store like Database 
+    - Schedule using Apache AirFlow. 

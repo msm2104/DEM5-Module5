@@ -26,11 +26,13 @@ class TestOperations(unittest.TestCase):
         self.df = self.df.dropna(subset=["Customer Name","Email"])
         null_rows_removed = duplicate_rows_removed - len(self.df)
         
-        self.df_cleaner.df, org1, null_removed1, duplicates1 = self.df_cleaner.clean_null_and_duplicates(nullSubset=["Customer Name","Email"],duplicateSubSet=None)
-
-        self.assertEqual(original_rows,org1, "no of original rows in data cleaning doesn't match")
-        self.assertEqual(duplicate_rows_removed,duplicates1, "no of duplicate rows removed in data cleaning doesn't match")
-        self.assertEqual(null_rows_removed,null_removed1, "no of null rows removed in data cleaning doesn't match")
+        self.df_cleaner.clean_empty_rows()
+        self.df_cleaner.find_duplicates()
+        
+        
+        self.assertEqual(original_rows,self.df_cleaner.stats["original_rows"], "no of original rows in data cleaning doesn't match")
+        self.assertEqual(duplicate_rows_removed,self.df_cleaner.stats["duplicate_rows_removed"], "no of duplicate rows removed in data cleaning doesn't match")
+        self.assertEqual(null_rows_removed,self.df_cleaner.stats["null_rows_removed"], "no of null rows removed in data cleaning doesn't match")
         assert_frame_equal(self.df,self.df_cleaner.df,"Clean DataFrame does not match")
 
 

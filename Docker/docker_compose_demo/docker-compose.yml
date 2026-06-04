@@ -1,0 +1,13 @@
+services:
+
+  sender:
+    build: ./sender
+
+  reciever:
+    build: ./reciever
+
+  redis:
+    image: redis:7
+
+  volumes:
+    myfirstvolume:
